@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Vollkorn, Chivo, IBM_Plex_Mono } from "next/font/google";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import "./globals.css";
+
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 const vollkorn = Vollkorn({
   variable: "--font-heading",
@@ -51,6 +54,17 @@ export default function RootLayout({
       className={`${vollkorn.variable} ${chivo.variable} ${ibmPlexMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-bd-bg text-bd-text">
+        {GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4" strategy="afterInteractive">
+              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${GA_ID}');`}
+            </Script>
+          </>
+        )}
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
