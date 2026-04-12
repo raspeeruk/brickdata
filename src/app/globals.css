@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Vollkorn";
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url("https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;700;900&display=swap");
+}
+
+:root {
+  /* BrickData Design Tokens — Survey Grid / Land Registry Record */
+  --bd-orange: #E07A2F;
+  --bd-orange-light: #F0A060;
+  --bd-blue: #2B5EA7;
+  --bd-blue-light: #4A7DB5;
+  --bd-bg: #F3F1EC;
+  --bd-surface: #FEFDFB;
+  --bd-text: #1C1B19;
+  --bd-text-secondary: #7A7770;
+  --bd-grid: #D5D2CA;
+  --bd-grid-strong: #C5C2BA;
+  --bd-positive: #2D7A3E;
+  --bd-negative: #C23B22;
+  --bd-rule: #B5B2AA;
+
+  --background: var(--bd-bg);
+  --foreground: var(--bd-text);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-bd-orange: var(--bd-orange);
+  --color-bd-orange-light: var(--bd-orange-light);
+  --color-bd-blue: var(--bd-blue);
+  --color-bd-blue-light: var(--bd-blue-light);
+  --color-bd-bg: var(--bd-bg);
+  --color-bd-surface: var(--bd-surface);
+  --color-bd-text: var(--bd-text);
+  --color-bd-text-secondary: var(--bd-text-secondary);
+  --color-bd-grid: var(--bd-grid);
+  --color-bd-grid-strong: var(--bd-grid-strong);
+  --color-bd-positive: var(--bd-positive);
+  --color-bd-negative: var(--bd-negative);
+  --color-bd-rule: var(--bd-rule);
+  --font-heading: "Vollkorn", Georgia, serif;
+  --font-body: "Chivo", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}
+
+body {
+  background: var(--bd-bg);
+  color: var(--bd-text);
+  font-family: var(--font-body);
+}
+
+/* Graph-paper grid pattern — the signature BrickData motif */
+.grid-pattern {
+  background-image:
+    linear-gradient(var(--bd-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--bd-grid) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.grid-pattern-strong {
+  background-image:
+    linear-gradient(var(--bd-grid-strong) 1px, transparent 1px),
+    linear-gradient(90deg, var(--bd-grid-strong) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Double horizontal rule — ledger divider */
+.rule-double {
+  border: none;
+  border-top: 2px solid var(--bd-rule);
+  border-bottom: 1px solid var(--bd-rule);
+  height: 5px;
+}
+
+/* EPC rating colors */
+.epc-a { background: #009036; color: white; }
+.epc-b { background: #19b459; color: white; }
+.epc-c { background: #8dce46; color: #1C1B19; }
+.epc-d { background: #ffd500; color: #1C1B19; }
+.epc-e { background: #fcaa65; color: #1C1B19; }
+.epc-f { background: #ef8023; color: white; }
+.epc-g { background: #e9153b; color: white; }
+
+/* Monospace data emphasis */
+.data-value {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+/* Reference number style */
+.ref-number {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--bd-text-secondary);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
