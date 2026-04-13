@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getSalesByPostcode, formatPrice } from "@/lib/land-registry";
-import { searchByPostcode } from "@/lib/epc-api";
+import { getByPostcode } from "@/lib/epc-data";
 import { getCrimeStats } from "@/lib/police-api";
 import {
   slugToPostcode,
@@ -40,7 +40,7 @@ export default async function PostcodePage({ params }: PageProps) {
   // Fetch all data sources in parallel
   const [landRegistryData, epcData, crimeData] = await Promise.all([
     getSalesByPostcode(postcode).catch(() => ({ sales: [], addresses: [] })),
-    searchByPostcode(postcode).catch(() => [] as EPCCertificate[]),
+    Promise.resolve(getByPostcode(postcode)),
     getCrimeStats(postcode).catch(() => null),
   ]);
 

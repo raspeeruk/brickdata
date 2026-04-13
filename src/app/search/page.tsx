@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { searchByAddress } from "@/lib/epc-api";
+import { searchByAddress } from "@/lib/epc-data";
 import { SearchBar } from "@/components/search-bar";
 import { postcodeToSlug, streetToSlug, numberToSlug } from "@/lib/postcodes";
 import Link from "next/link";
@@ -20,7 +20,7 @@ export default async function SearchPage({
 
   let results: EPCCertificate[] = [];
   if (q && q.trim().length > 2) {
-    results = await searchByAddress(q.trim(), 50).catch(() => []);
+    results = searchByAddress(q.trim());
   }
 
   return (

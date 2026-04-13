@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { getSalesForProperty, formatPrice, priceChange } from "@/lib/land-registry";
-import { searchByAddress } from "@/lib/epc-api";
+import { getProperty, getByPostcode } from "@/lib/epc-data";
 import { getCrimeStats } from "@/lib/police-api";
 import {
   slugToPostcode,
@@ -48,8 +48,11 @@ export default async function PropertyPage({ params }: PageProps) {
       sales: [],
       address: null,
     })),
-    searchByAddress(`${number} ${street} ${postcode}`).catch(
-      () => [] as EPCCertificate[]
+    Promise.resolve(
+      (() => {
+        const match = getProperty(postcode, stSlug, numSlug);
+        return match ? [match] : getByPostcode(postcode);
+      })()
     ),
     getCrimeStats(postcode).catch(() => null),
   ]);

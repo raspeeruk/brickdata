@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getSalesByPostcode, formatPrice } from "@/lib/land-registry";
-import { searchByPostcode } from "@/lib/epc-api";
+import { getByPostcode } from "@/lib/epc-data";
 import {
   slugToPostcode,
   slugToStreet,
@@ -37,7 +37,7 @@ export default async function StreetPage({ params }: PageProps) {
 
   const [landRegistryData, epcData] = await Promise.all([
     getSalesByPostcode(postcode).catch(() => ({ sales: [], addresses: [] })),
-    searchByPostcode(postcode).catch(() => [] as EPCCertificate[]),
+    Promise.resolve(getByPostcode(postcode)),
   ]);
 
   // Filter to this street
