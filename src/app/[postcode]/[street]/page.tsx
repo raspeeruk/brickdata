@@ -37,7 +37,7 @@ export default async function StreetPage({ params }: PageProps) {
 
   const [landRegistryData, epcData] = await Promise.all([
     getSalesByPostcode(postcode).catch(() => ({ sales: [], addresses: [] })),
-    Promise.resolve(getByPostcode(postcode)),
+    getByPostcode(postcode),
   ]);
 
   // Filter to this street

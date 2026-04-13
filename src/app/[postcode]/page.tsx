@@ -40,7 +40,7 @@ export default async function PostcodePage({ params }: PageProps) {
   // Fetch all data sources in parallel
   const [landRegistryData, epcData, crimeData] = await Promise.all([
     getSalesByPostcode(postcode).catch(() => ({ sales: [], addresses: [] })),
-    Promise.resolve(getByPostcode(postcode)),
+    getByPostcode(postcode),
     getCrimeStats(postcode).catch(() => null),
   ]);
 

@@ -20,7 +20,7 @@ export default async function SearchPage({
 
   let results: EPCCertificate[] = [];
   if (q && q.trim().length > 2) {
-    results = searchByAddress(q.trim());
+    results = await searchByAddress(q.trim());
   }
 
   return (

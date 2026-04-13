@@ -8,6 +8,10 @@ import { readFileSync, existsSync } from "fs";
 import { join } from "path";
 import type { EPCCertificate } from "./types";
 import { formatPostcode } from "./postcodes";
+import {
+  searchByPostcode as apiSearchByPostcode,
+  searchByAddress as apiSearchByAddress,
+} from "./epc-api";
 
 // ── Types matching the download script output ───────────────────────
 
@@ -142,28 +146,43 @@ function getOutwardCode(postcode: string): string {
   return formatted.split(" ")[0].toLowerCase();
 }
 
-/** Get all EPC certificates for a postcode from local data */
-export function getByPostcode(postcode: string): EPCCertificate[] {
+/** Get all EPC certificates for a postcode — local data first, API fallback */
+export async function getByPostcode(postcode: string): Promise<EPCCertificate[]> {
   const formatted = formatPostcode(postcode);
   const oc = getOutwardCode(postcode);
   const district = loadDistrictFile(oc);
-  if (!district) return [];
 
-  return district.properties
-    .filter(
-      (r) =>
-        r.postcode.replace(/\s/g, "").toUpperCase() ===
-        formatted.replace(/\s/g, "").toUpperCase(),
-    )
-    .map(toEPCCertificate);
+  if (district) {
+    return district.properties
+      .filter(
+        (r) =>
+          r.postcode.replace(/\s/g, "").toUpperCase() ===
+          formatted.replace(/\s/g, "").toUpperCase(),
+      )
+      .map(toEPCCertificate);
+  }
+
+  // Fallback to live API
+  try {
+    return await apiSearchByPostcode(postcode);
+  } catch {
+    return [];
+  }
 }
 
-/** Search by address text (simple substring match against local data) */
-export function searchByAddress(query: string): EPCCertificate[] {
-  const q = query.toUpperCase();
+/** Search by address text — local data first, API fallback */
+export async function searchByAddress(query: string): Promise<EPCCertificate[]> {
   const index = loadIndex();
-  if (!index) return [];
+  if (!index) {
+    // No local data — fall back to live API
+    try {
+      return await apiSearchByAddress(query);
+    } catch {
+      return [];
+    }
+  }
 
+  const q = query.toUpperCase();
   const results: EPCCertificate[] = [];
   for (const { district } of index.districts) {
     const file = loadDistrictFile(district);
@@ -194,11 +213,10 @@ export function getPostcodesInDistrict(outwardCode: string): string[] {
 }
 
 /** Get all unique streets for a postcode */
-export function getStreetsForPostcode(postcode: string): string[] {
-  const certs = getByPostcode(postcode);
+export async function getStreetsForPostcode(postcode: string): Promise<string[]> {
+  const certs = await getByPostcode(postcode);
   const streets = new Set<string>();
   for (const c of certs) {
-    // Extract street from address fields
     const street = extractStreet(c);
     if (street) streets.add(street);
   }
@@ -206,11 +224,11 @@ export function getStreetsForPostcode(postcode: string): string[] {
 }
 
 /** Get all properties on a specific street within a postcode */
-export function getPropertiesOnStreet(
+export async function getPropertiesOnStreet(
   postcode: string,
   streetSlug: string,
-): EPCCertificate[] {
-  const certs = getByPostcode(postcode);
+): Promise<EPCCertificate[]> {
+  const certs = await getByPostcode(postcode);
   return certs.filter((c) => {
     const street = extractStreet(c);
     if (!street) return false;
@@ -223,12 +241,12 @@ export function getPropertiesOnStreet(
 }
 
 /** Get a single property by postcode, street slug, and number slug */
-export function getProperty(
+export async function getProperty(
   postcode: string,
   streetSlug: string,
   numberSlug: string,
-): EPCCertificate | null {
-  const properties = getPropertiesOnStreet(postcode, streetSlug);
+): Promise<EPCCertificate | null> {
+  const properties = await getPropertiesOnStreet(postcode, streetSlug);
   const numUpper = numberSlug.toUpperCase().replace(/-/g, " ");
 
   return (

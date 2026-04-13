@@ -48,11 +48,8 @@ export default async function PropertyPage({ params }: PageProps) {
       sales: [],
       address: null,
     })),
-    Promise.resolve(
-      (() => {
-        const match = getProperty(postcode, stSlug, numSlug);
-        return match ? [match] : getByPostcode(postcode);
-      })()
+    getProperty(postcode, stSlug, numSlug).then(async (match) =>
+      match ? [match] : getByPostcode(postcode)
     ),
     getCrimeStats(postcode).catch(() => null),
   ]);
