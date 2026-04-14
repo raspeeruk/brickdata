@@ -30,31 +30,69 @@ export async function GET() {
     results.epcError = String(e);
   }
 
-  // Test 2: Land Registry SPARQL (full query matching page code)
+  // Test 2: Land Registry SPARQL - multiple query variants
+  // Simple query (just price)
   try {
-    const query = `PREFIX lrppi: <http://landregistry.data.gov.uk/def/ppi/> PREFIX lrcommon: <http://landregistry.data.gov.uk/def/common/> SELECT ?transactionId ?price ?date ?paon ?saon ?street ?locality ?town ?district ?county ?propertyType ?newBuild ?tenure ?ppdCategory WHERE { ?txn lrppi:pricePaid ?price ; lrppi:transactionDate ?date ; lrppi:propertyAddress ?addr ; lrppi:transactionId ?transactionId . ?addr lrcommon:postcode "SW11 2NN" ; lrcommon:paon ?paon ; lrcommon:street ?street ; lrcommon:town ?town ; lrcommon:district ?district ; lrcommon:county ?county . OPTIONAL { ?addr lrcommon:saon ?saon } OPTIONAL { ?addr lrcommon:locality ?locality } ?txn lrppi:propertyType/lrcommon:code ?propertyType . ?txn lrppi:newBuild ?newBuild . ?txn lrppi:estateType/lrcommon:code ?tenure . OPTIONAL { ?txn lrppi:ppdCategoryType/lrcommon:code ?ppdCategory } } ORDER BY DESC(?date) LIMIT 3`;
-    const t0 = Date.now();
-    const res = await fetch("https://landregistry.data.gov.uk/landregistry/query", {
+    const q1 = `PREFIX lrppi: <http://landregistry.data.gov.uk/def/ppi/>
+PREFIX lrcommon: <http://landregistry.data.gov.uk/def/common/>
+SELECT ?price ?date WHERE {
+  ?txn lrppi:pricePaid ?price ;
+       lrppi:transactionDate ?date ;
+       lrppi:propertyAddress ?addr .
+  ?addr lrcommon:postcode "SW11 2NN" .
+} LIMIT 2`;
+    const r1 = await fetch("https://landregistry.data.gov.uk/landregistry/query", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded", Accept: "application/sparql-results+json" },
-      body: `query=${encodeURIComponent(query)}`,
+      body: `query=${encodeURIComponent(q1)}`,
       cache: "no-store",
     });
-    results.lrMs = Date.now() - t0;
-    results.lrStatus = res.status;
-    if (res.ok) {
-      const data = await res.json();
-      results.lrBindings = data.results?.bindings?.length ?? 0;
-      if (data.results?.bindings?.[0]) {
-        const b = data.results.bindings[0];
-        results.lrSample = { price: b.price?.value, street: b.street?.value };
-      }
-    } else {
-      results.lrBody = await res.text().then((t: string) => t.slice(0, 300));
-    }
-  } catch (e) {
-    results.lrError = String(e);
-  }
+    const d1 = await r1.json();
+    results.lrSimple = d1.results?.bindings?.length ?? 0;
+  } catch (e) { results.lrSimpleErr = String(e); }
+
+  // With address fields
+  try {
+    const q2 = `PREFIX lrppi: <http://landregistry.data.gov.uk/def/ppi/>
+PREFIX lrcommon: <http://landregistry.data.gov.uk/def/common/>
+SELECT ?price ?date ?paon ?street ?town WHERE {
+  ?txn lrppi:pricePaid ?price ;
+       lrppi:transactionDate ?date ;
+       lrppi:propertyAddress ?addr .
+  ?addr lrcommon:postcode "SW11 2NN" ;
+        lrcommon:paon ?paon ;
+        lrcommon:street ?street ;
+        lrcommon:town ?town .
+} LIMIT 2`;
+    const r2 = await fetch("https://landregistry.data.gov.uk/landregistry/query", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded", Accept: "application/sparql-results+json" },
+      body: `query=${encodeURIComponent(q2)}`,
+      cache: "no-store",
+    });
+    const d2 = await r2.json();
+    results.lrWithAddr = d2.results?.bindings?.length ?? 0;
+  } catch (e) { results.lrWithAddrErr = String(e); }
+
+  // With property type join (the /lrcommon:code path)
+  try {
+    const q3 = `PREFIX lrppi: <http://landregistry.data.gov.uk/def/ppi/>
+PREFIX lrcommon: <http://landregistry.data.gov.uk/def/common/>
+SELECT ?price ?propertyType WHERE {
+  ?txn lrppi:pricePaid ?price ;
+       lrppi:propertyAddress ?addr .
+  ?addr lrcommon:postcode "SW11 2NN" .
+  ?txn lrppi:propertyType/lrcommon:code ?propertyType .
+} LIMIT 2`;
+    const r3 = await fetch("https://landregistry.data.gov.uk/landregistry/query", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded", Accept: "application/sparql-results+json" },
+      body: `query=${encodeURIComponent(q3)}`,
+      cache: "no-store",
+    });
+    const d3 = await r3.json();
+    results.lrWithType = d3.results?.bindings?.length ?? 0;
+  } catch (e) { results.lrWithTypeErr = String(e); }
 
   // Test 3: Police API
   try {
