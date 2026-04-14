@@ -9,6 +9,8 @@ export async function GET() {
   try {
     const email = process.env.EPC_API_EMAIL;
     const key = process.env.EPC_API_KEY;
+    results.epcEmail = email ? email.slice(0, 4) + "***" : "(not set)";
+    results.epcKeyLen = key?.length ?? 0;
     results.epcEnvSet = !!(email && key);
     if (email && key) {
       const auth = `Basic ${Buffer.from(`${email}:${key}`).toString("base64")}`;
