@@ -30,21 +30,27 @@ export async function GET() {
     results.epcError = String(e);
   }
 
-  // Test 2: Land Registry SPARQL
+  // Test 2: Land Registry SPARQL (full query matching page code)
   try {
-    const query = `PREFIX lrppi: <http://landregistry.data.gov.uk/def/ppi/> PREFIX lrcommon: <http://landregistry.data.gov.uk/def/common/> SELECT ?price WHERE { ?txn lrppi:pricePaid ?price ; lrppi:propertyAddress ?addr . ?addr lrcommon:postcode "SW11 2NN" . } LIMIT 1`;
+    const query = `PREFIX lrppi: <http://landregistry.data.gov.uk/def/ppi/> PREFIX lrcommon: <http://landregistry.data.gov.uk/def/common/> SELECT ?transactionId ?price ?date ?paon ?saon ?street ?locality ?town ?district ?county ?propertyType ?newBuild ?tenure ?ppdCategory WHERE { ?txn lrppi:pricePaid ?price ; lrppi:transactionDate ?date ; lrppi:propertyAddress ?addr ; lrppi:transactionId ?transactionId . ?addr lrcommon:postcode "SW11 2NN" ; lrcommon:paon ?paon ; lrcommon:street ?street ; lrcommon:town ?town ; lrcommon:district ?district ; lrcommon:county ?county . OPTIONAL { ?addr lrcommon:saon ?saon } OPTIONAL { ?addr lrcommon:locality ?locality } ?txn lrppi:propertyType/lrcommon:code ?propertyType . ?txn lrppi:newBuild ?newBuild . ?txn lrppi:estateType/lrcommon:code ?tenure . OPTIONAL { ?txn lrppi:ppdCategoryType/lrcommon:code ?ppdCategory } } ORDER BY DESC(?date) LIMIT 3`;
+    const t0 = Date.now();
     const res = await fetch("https://landregistry.data.gov.uk/landregistry/query", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded", Accept: "application/sparql-results+json" },
       body: `query=${encodeURIComponent(query)}`,
       cache: "no-store",
     });
+    results.lrMs = Date.now() - t0;
     results.lrStatus = res.status;
     if (res.ok) {
       const data = await res.json();
       results.lrBindings = data.results?.bindings?.length ?? 0;
+      if (data.results?.bindings?.[0]) {
+        const b = data.results.bindings[0];
+        results.lrSample = { price: b.price?.value, street: b.street?.value };
+      }
     } else {
-      results.lrBody = await res.text().then((t) => t.slice(0, 200));
+      results.lrBody = await res.text().then((t: string) => t.slice(0, 300));
     }
   } catch (e) {
     results.lrError = String(e);
