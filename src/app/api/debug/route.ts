@@ -74,9 +74,9 @@ SELECT ?price ?date ?paon ?street ?town WHERE {
     results.lrWithAddr = d2.results?.bindings?.length ?? 0;
   } catch (e) { results.lrWithAddrErr = String(e); }
 
-  // With property type join (the /lrcommon:code path)
+  // With property type join - OLD syntax (property path)
   try {
-    const q3 = `PREFIX lrppi: <http://landregistry.data.gov.uk/def/ppi/>
+    const q3old = `PREFIX lrppi: <http://landregistry.data.gov.uk/def/ppi/>
 PREFIX lrcommon: <http://landregistry.data.gov.uk/def/common/>
 SELECT ?price ?propertyType WHERE {
   ?txn lrppi:pricePaid ?price ;
@@ -84,15 +84,36 @@ SELECT ?price ?propertyType WHERE {
   ?addr lrcommon:postcode "SW11 2NN" .
   ?txn lrppi:propertyType/lrcommon:code ?propertyType .
 } LIMIT 2`;
-    const r3 = await fetch("https://landregistry.data.gov.uk/landregistry/query", {
+    const r3o = await fetch("https://landregistry.data.gov.uk/landregistry/query", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded", Accept: "application/sparql-results+json" },
-      body: `query=${encodeURIComponent(q3)}`,
+      body: `query=${encodeURIComponent(q3old)}`,
       cache: "no-store",
     });
-    const d3 = await r3.json();
-    results.lrWithType = d3.results?.bindings?.length ?? 0;
-  } catch (e) { results.lrWithTypeErr = String(e); }
+    const d3o = await r3o.json();
+    results.lrOldSyntax = d3o.results?.bindings?.length ?? 0;
+  } catch (e) { results.lrOldSyntaxErr = String(e); }
+
+  // With property type join - NEW syntax (intermediate variable)
+  try {
+    const q3new = `PREFIX lrppi: <http://landregistry.data.gov.uk/def/ppi/>
+PREFIX lrcommon: <http://landregistry.data.gov.uk/def/common/>
+SELECT ?price ?propertyType WHERE {
+  ?txn lrppi:pricePaid ?price ;
+       lrppi:propertyAddress ?addr .
+  ?addr lrcommon:postcode "SW11 2NN" .
+  ?txn lrppi:propertyType ?ptNode .
+  ?ptNode lrcommon:code ?propertyType .
+} LIMIT 2`;
+    const r3n = await fetch("https://landregistry.data.gov.uk/landregistry/query", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded", Accept: "application/sparql-results+json" },
+      body: `query=${encodeURIComponent(q3new)}`,
+      cache: "no-store",
+    });
+    const d3n = await r3n.json();
+    results.lrNewSyntax = d3n.results?.bindings?.length ?? 0;
+  } catch (e) { results.lrNewSyntaxErr = String(e); }
 
   // Test 3: Police API
   try {
