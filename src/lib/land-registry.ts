@@ -31,7 +31,6 @@ interface SparqlResult {
 
 function buildPostcodeQuery(postcode: string): string {
   const clean = postcode.replace(/\s/g, "").toUpperCase();
-  // Re-format with space: "SW1A2AA" -> "SW1A 2AA"
   const formatted =
     clean.length > 3
       ? `${clean.slice(0, -3)} ${clean.slice(-3)}`
@@ -58,16 +57,11 @@ function buildPostcodeQuery(postcode: string): string {
       OPTIONAL { ?addr lrcommon:saon ?saon }
       OPTIONAL { ?addr lrcommon:locality ?locality }
 
-      ?txn lrppi:propertyType ?ptNode .
-      ?ptNode lrcommon:code ?propertyType .
+      ?txn lrppi:propertyType ?propertyType .
       ?txn lrppi:newBuild ?newBuild .
-      ?txn lrppi:estateType ?etNode .
-      ?etNode lrcommon:code ?tenure .
+      ?txn lrppi:estateType ?tenure .
 
-      OPTIONAL {
-        ?txn lrppi:ppdCategoryType ?pcNode .
-        ?pcNode lrcommon:code ?ppdCategory .
-      }
+      OPTIONAL { ?txn lrppi:ppdCategoryType ?ppdCategory }
     }
     ORDER BY DESC(?date)
     LIMIT 500
@@ -104,16 +98,11 @@ function buildAddressQuery(postcode: string, street: string, number: string): st
 
       FILTER(UCASE(?paon) = "${number.toUpperCase()}")
 
-      ?txn lrppi:propertyType ?ptNode .
-      ?ptNode lrcommon:code ?propertyType .
+      ?txn lrppi:propertyType ?propertyType .
       ?txn lrppi:newBuild ?newBuild .
-      ?txn lrppi:estateType ?etNode .
-      ?etNode lrcommon:code ?tenure .
+      ?txn lrppi:estateType ?tenure .
 
-      OPTIONAL {
-        ?txn lrppi:ppdCategoryType ?pcNode .
-        ?pcNode lrcommon:code ?ppdCategory .
-      }
+      OPTIONAL { ?txn lrppi:ppdCategoryType ?ppdCategory }
     }
     ORDER BY DESC(?date)
     LIMIT 100
@@ -121,11 +110,14 @@ function buildAddressQuery(postcode: string, street: string, number: string): st
 }
 
 function parseTenure(uri: string): "F" | "L" {
+  // Handles both URI (http://.../leasehold) and code ("L")
   if (uri.includes("leasehold") || uri === "L") return "L";
   return "F";
 }
 
 function parsePropertyType(uri: string): "D" | "S" | "T" | "F" | "O" {
+  // Extract last segment from URI: "http://.../flat-maisonette" -> "flat-maisonette"
+  const segment = uri.includes("/") ? uri.split("/").pop()! : uri;
   const map: Record<string, "D" | "S" | "T" | "F" | "O"> = {
     detached: "D", "D": "D",
     "semi-detached": "S", "S": "S",
@@ -133,11 +125,11 @@ function parsePropertyType(uri: string): "D" | "S" | "T" | "F" | "O" {
     "flat-maisonette": "F", "F": "F",
     other: "O", "O": "O",
   };
-  return map[uri] || "O";
+  return map[segment] || "O";
 }
 
 function parseNewBuild(val: string): boolean {
-  return val === "true" || val === "Y";
+  return val === "true" || val === "Y" || val.includes("true");
 }
 
 function parseResults(bindings: SparqlResult[]): {
@@ -172,7 +164,7 @@ function parseResults(bindings: SparqlResult[]): {
       propertyType: parsePropertyType(b.propertyType.value),
       isNewBuild: parseNewBuild(b.newBuild.value),
       tenure: parseTenure(b.tenure.value),
-      category: (b.ppdCategory?.value === "B" ? "B" : "A") as "A" | "B",
+      category: (b.ppdCategory?.value?.includes("B") ? "B" : "A") as "A" | "B",
     });
   }
 
