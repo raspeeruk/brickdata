@@ -58,11 +58,16 @@ function buildPostcodeQuery(postcode: string): string {
       OPTIONAL { ?addr lrcommon:saon ?saon }
       OPTIONAL { ?addr lrcommon:locality ?locality }
 
-      ?txn lrppi:propertyType/lrcommon:code ?propertyType .
+      ?txn lrppi:propertyType ?ptNode .
+      ?ptNode lrcommon:code ?propertyType .
       ?txn lrppi:newBuild ?newBuild .
-      ?txn lrppi:estateType/lrcommon:code ?tenure .
+      ?txn lrppi:estateType ?etNode .
+      ?etNode lrcommon:code ?tenure .
 
-      OPTIONAL { ?txn lrppi:ppdCategoryType/lrcommon:code ?ppdCategory }
+      OPTIONAL {
+        ?txn lrppi:ppdCategoryType ?pcNode .
+        ?pcNode lrcommon:code ?ppdCategory .
+      }
     }
     ORDER BY DESC(?date)
     LIMIT 500
@@ -99,11 +104,16 @@ function buildAddressQuery(postcode: string, street: string, number: string): st
 
       FILTER(UCASE(?paon) = "${number.toUpperCase()}")
 
-      ?txn lrppi:propertyType/lrcommon:code ?propertyType .
+      ?txn lrppi:propertyType ?ptNode .
+      ?ptNode lrcommon:code ?propertyType .
       ?txn lrppi:newBuild ?newBuild .
-      ?txn lrppi:estateType/lrcommon:code ?tenure .
+      ?txn lrppi:estateType ?etNode .
+      ?etNode lrcommon:code ?tenure .
 
-      OPTIONAL { ?txn lrppi:ppdCategoryType/lrcommon:code ?ppdCategory }
+      OPTIONAL {
+        ?txn lrppi:ppdCategoryType ?pcNode .
+        ?pcNode lrcommon:code ?ppdCategory .
+      }
     }
     ORDER BY DESC(?date)
     LIMIT 100
