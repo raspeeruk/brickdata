@@ -94,26 +94,26 @@ SELECT ?price ?propertyType WHERE {
     results.lrOldSyntax = d3o.results?.bindings?.length ?? 0;
   } catch (e) { results.lrOldSyntaxErr = String(e); }
 
-  // With property type join - NEW syntax (intermediate variable)
+  // Just propertyType URI (no code lookup)
   try {
-    const q3new = `PREFIX lrppi: <http://landregistry.data.gov.uk/def/ppi/>
+    const q3b = `PREFIX lrppi: <http://landregistry.data.gov.uk/def/ppi/>
 PREFIX lrcommon: <http://landregistry.data.gov.uk/def/common/>
-SELECT ?price ?propertyType WHERE {
+SELECT ?price ?ptNode WHERE {
   ?txn lrppi:pricePaid ?price ;
        lrppi:propertyAddress ?addr .
   ?addr lrcommon:postcode "SW11 2NN" .
   ?txn lrppi:propertyType ?ptNode .
-  ?ptNode lrcommon:code ?propertyType .
 } LIMIT 2`;
-    const r3n = await fetch("https://landregistry.data.gov.uk/landregistry/query", {
+    const r3b = await fetch("https://landregistry.data.gov.uk/landregistry/query", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded", Accept: "application/sparql-results+json" },
-      body: `query=${encodeURIComponent(q3new)}`,
+      body: `query=${encodeURIComponent(q3b)}`,
       cache: "no-store",
     });
-    const d3n = await r3n.json();
-    results.lrNewSyntax = d3n.results?.bindings?.length ?? 0;
-  } catch (e) { results.lrNewSyntaxErr = String(e); }
+    const d3b = await r3b.json();
+    results.lrJustPtNode = d3b.results?.bindings?.length ?? 0;
+    if (d3b.results?.bindings?.[0]) results.lrPtSample = d3b.results.bindings[0].ptNode?.value;
+  } catch (e) { results.lrJustPtNodeErr = String(e); }
 
   // Test 3: Police API
   try {
