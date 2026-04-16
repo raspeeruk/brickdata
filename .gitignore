@@ -34,7 +34,10 @@ yarn-error.log*
 .env*
 
 # EPC bulk data (regenerate with: npm run epc:download)
-/data/epc/
+/data/epc/*
+# Keep lightweight index files (needed for sitemap generation)
+!/data/epc/_index.json
+!/data/epc/_postcodes.json
 
 # temp/progress files
 /.tmp/
@@ -45,3 +48,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local Netlify folder
+.netlify

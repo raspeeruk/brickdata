@@ -1,0 +1,1428 @@
+{
+  "totalDistricts": 284,
+  "totalProperties": 1957319,
+  "totalPostcodes": 167908,
+  "updated": "2026-04-13",
+  "districts": [
+    {
+      "district": "BR1",
+      "count": 9668,
+      "postcodes": 1021
+    },
+    {
+      "district": "BR2",
+      "count": 9632,
+      "postcodes": 932
+    },
+    {
+      "district": "BR3",
+      "count": 9678,
+      "postcodes": 1018
+    },
+    {
+      "district": "BR4",
+      "count": 5534,
+      "postcodes": 348
+    },
+    {
+      "district": "BR5",
+      "count": 9425,
+      "postcodes": 859
+    },
+    {
+      "district": "BR6",
+      "count": 9457,
+      "postcodes": 1012
+    },
+    {
+      "district": "BR7",
+      "count": 6493,
+      "postcodes": 434
+    },
+    {
+      "district": "BR8",
+      "count": 26,
+      "postcodes": 8
+    },
+    {
+      "district": "CR0",
+      "count": 9822,
+      "postcodes": 2089
+    },
+    {
+      "district": "CR2",
+      "count": 9548,
+      "postcodes": 938
+    },
+    {
+      "district": "CR3",
+      "count": 189,
+      "postcodes": 22
+    },
+    {
+      "district": "CR4",
+      "count": 9417,
+      "postcodes": 824
+    },
+    {
+      "district": "CR5",
+      "count": 6928,
+      "postcodes": 495
+    },
+    {
+      "district": "CR7",
+      "count": 9381,
+      "postcodes": 580
+    },
+    {
+      "district": "CR8",
+      "count": 9257,
+      "postcodes": 727
+    },
+    {
+      "district": "CR9",
+      "count": 288,
+      "postcodes": 9
+    },
+    {
+      "district": "DA1",
+      "count": 3921,
+      "postcodes": 1447
+    },
+    {
+      "district": "DA14",
+      "count": 9085,
+      "postcodes": 627
+    },
+    {
+      "district": "DA15",
+      "count": 5053,
+      "postcodes": 460
+    },
+    {
+      "district": "DA16",
+      "count": 9014,
+      "postcodes": 545
+    },
+    {
+      "district": "DA17",
+      "count": 6998,
+      "postcodes": 307
+    },
+    {
+      "district": "DA18",
+      "count": 2035,
+      "postcodes": 51
+    },
+    {
+      "district": "DA5",
+      "count": 5229,
+      "postcodes": 349
+    },
+    {
+      "district": "DA6",
+      "count": 4332,
+      "postcodes": 222
+    },
+    {
+      "district": "DA7",
+      "count": 8898,
+      "postcodes": 601
+    },
+    {
+      "district": "DA8",
+      "count": 8624,
+      "postcodes": 551
+    },
+    {
+      "district": "E1",
+      "count": 9873,
+      "postcodes": 4057
+    },
+    {
+      "district": "E10",
+      "count": 9605,
+      "postcodes": 653
+    },
+    {
+      "district": "E11",
+      "count": 9612,
+      "postcodes": 840
+    },
+    {
+      "district": "E12",
+      "count": 9663,
+      "postcodes": 516
+    },
+    {
+      "district": "E13",
+      "count": 9671,
+      "postcodes": 646
+    },
+    {
+      "district": "E14",
+      "count": 9874,
+      "postcodes": 1338
+    },
+    {
+      "district": "E15",
+      "count": 9487,
+      "postcodes": 741
+    },
+    {
+      "district": "E16",
+      "count": 9841,
+      "postcodes": 789
+    },
+    {
+      "district": "E17",
+      "count": 9728,
+      "postcodes": 1249
+    },
+    {
+      "district": "E18",
+      "count": 9480,
+      "postcodes": 465
+    },
+    {
+      "district": "E1W",
+      "count": 8937,
+      "postcodes": 292
+    },
+    {
+      "district": "E2",
+      "count": 9765,
+      "postcodes": 864
+    },
+    {
+      "district": "E20",
+      "count": 9785,
+      "postcodes": 361
+    },
+    {
+      "district": "E3",
+      "count": 9619,
+      "postcodes": 901
+    },
+    {
+      "district": "E4",
+      "count": 9531,
+      "postcodes": 863
+    },
+    {
+      "district": "E5",
+      "count": 9599,
+      "postcodes": 592
+    },
+    {
+      "district": "E6",
+      "count": 9633,
+      "postcodes": 798
+    },
+    {
+      "district": "E7",
+      "count": 9543,
+      "postcodes": 503
+    },
+    {
+      "district": "E8",
+      "count": 9636,
+      "postcodes": 614
+    },
+    {
+      "district": "E9",
+      "count": 9548,
+      "postcodes": 581
+    },
+    {
+      "district": "EC1A",
+      "count": 1433,
+      "postcodes": 49
+    },
+    {
+      "district": "EC1M",
+      "count": 1223,
+      "postcodes": 77
+    },
+    {
+      "district": "EC1N",
+      "count": 1492,
+      "postcodes": 73
+    },
+    {
+      "district": "EC1R",
+      "count": 2647,
+      "postcodes": 166
+    },
+    {
+      "district": "EC1V",
+      "count": 9131,
+      "postcodes": 322
+    },
+    {
+      "district": "EC1Y",
+      "count": 2214,
+      "postcodes": 107
+    },
+    {
+      "district": "EC2A",
+      "count": 2587,
+      "postcodes": 122
+    },
+    {
+      "district": "EC2M",
+      "count": 131,
+      "postcodes": 9
+    },
+    {
+      "district": "EC2N",
+      "count": 11,
+      "postcodes": 2
+    },
+    {
+      "district": "EC2R",
+      "count": 15,
+      "postcodes": 1
+    },
+    {
+      "district": "EC2V",
+      "count": 8,
+      "postcodes": 4
+    },
+    {
+      "district": "EC2Y",
+      "count": 2090,
+      "postcodes": 46
+    },
+    {
+      "district": "EC3A",
+      "count": 206,
+      "postcodes": 3
+    },
+    {
+      "district": "EC3M",
+      "count": 28,
+      "postcodes": 3
+    },
+    {
+      "district": "EC3N",
+      "count": 450,
+      "postcodes": 16
+    },
+    {
+      "district": "EC3R",
+      "count": 644,
+      "postcodes": 18
+    },
+    {
+      "district": "EC3V",
+      "count": 16,
+      "postcodes": 3
+    },
+    {
+      "district": "EC4A",
+      "count": 588,
+      "postcodes": 28
+    },
+    {
+      "district": "EC4M",
+      "count": 240,
+      "postcodes": 12
+    },
+    {
+      "district": "EC4N",
+      "count": 23,
+      "postcodes": 4
+    },
+    {
+      "district": "EC4R",
+      "count": 82,
+      "postcodes": 8
+    },
+    {
+      "district": "EC4V",
+      "count": 653,
+      "postcodes": 26
+    },
+    {
+      "district": "EC4Y",
+      "count": 278,
+      "postcodes": 49
+    },
+    {
+      "district": "EN1",
+      "count": 4961,
+      "postcodes": 747
+    },
+    {
+      "district": "EN2",
+      "count": 9193,
+      "postcodes": 751
+    },
+    {
+      "district": "EN3",
+      "count": 9530,
+      "postcodes": 873
+    },
+    {
+      "district": "EN4",
+      "count": 9080,
+      "postcodes": 533
+    },
+    {
+      "district": "EN5",
+      "count": 9350,
+      "postcodes": 922
+    },
+    {
+      "district": "EN8",
+      "count": 432,
+      "postcodes": 29
+    },
+    {
+      "district": "HA0",
+      "count": 9556,
+      "postcodes": 753
+    },
+    {
+      "district": "HA1",
+      "count": 9662,
+      "postcodes": 755
+    },
+    {
+      "district": "HA2",
+      "count": 9684,
+      "postcodes": 887
+    },
+    {
+      "district": "HA3",
+      "count": 9512,
+      "postcodes": 1112
+    },
+    {
+      "district": "HA4",
+      "count": 9598,
+      "postcodes": 1022
+    },
+    {
+      "district": "HA5",
+      "count": 9460,
+      "postcodes": 983
+    },
+    {
+      "district": "HA6",
+      "count": 6971,
+      "postcodes": 480
+    },
+    {
+      "district": "HA7",
+      "count": 9150,
+      "postcodes": 766
+    },
+    {
+      "district": "HA8",
+      "count": 9388,
+      "postcodes": 1205
+    },
+    {
+      "district": "HA9",
+      "count": 9797,
+      "postcodes": 740
+    },
+    {
+      "district": "IG1",
+      "count": 8061,
+      "postcodes": 1297
+    },
+    {
+      "district": "IG11",
+      "count": 9633,
+      "postcodes": 913
+    },
+    {
+      "district": "IG2",
+      "count": 8521,
+      "postcodes": 373
+    },
+    {
+      "district": "IG3",
+      "count": 9173,
+      "postcodes": 469
+    },
+    {
+      "district": "IG4",
+      "count": 2235,
+      "postcodes": 130
+    },
+    {
+      "district": "IG5",
+      "count": 4539,
+      "postcodes": 236
+    },
+    {
+      "district": "IG6",
+      "count": 8989,
+      "postcodes": 519
+    },
+    {
+      "district": "IG7",
+      "count": 3322,
+      "postcodes": 184
+    },
+    {
+      "district": "IG8",
+      "count": 8953,
+      "postcodes": 686
+    },
+    {
+      "district": "IG9",
+      "count": 492,
+      "postcodes": 32
+    },
+    {
+      "district": "KT1",
+      "count": 1245,
+      "postcodes": 291
+    },
+    {
+      "district": "KT2",
+      "count": 3225,
+      "postcodes": 542
+    },
+    {
+      "district": "KT3",
+      "count": 9345,
+      "postcodes": 680
+    },
+    {
+      "district": "KT4",
+      "count": 7135,
+      "postcodes": 368
+    },
+    {
+      "district": "KT5",
+      "count": 7938,
+      "postcodes": 357
+    },
+    {
+      "district": "KT6",
+      "count": 8589,
+      "postcodes": 593
+    },
+    {
+      "district": "KT9",
+      "count": 6902,
+      "postcodes": 354
+    },
+    {
+      "district": "N1",
+      "count": 9880,
+      "postcodes": 3970
+    },
+    {
+      "district": "N10",
+      "count": 9492,
+      "postcodes": 669
+    },
+    {
+      "district": "N11",
+      "count": 9557,
+      "postcodes": 739
+    },
+    {
+      "district": "N12",
+      "count": 9391,
+      "postcodes": 868
+    },
+    {
+      "district": "N13",
+      "count": 9572,
+      "postcodes": 646
+    },
+    {
+      "district": "N14",
+      "count": 9560,
+      "postcodes": 799
+    },
+    {
+      "district": "N15",
+      "count": 9678,
+      "postcodes": 790
+    },
+    {
+      "district": "N16",
+      "count": 9629,
+      "postcodes": 1085
+    },
+    {
+      "district": "N17",
+      "count": 9729,
+      "postcodes": 1042
+    },
+    {
+      "district": "N18",
+      "count": 9397,
+      "postcodes": 656
+    },
+    {
+      "district": "N19",
+      "count": 9463,
+      "postcodes": 688
+    },
+    {
+      "district": "N1C",
+      "count": 2055,
+      "postcodes": 34
+    },
+    {
+      "district": "N2",
+      "count": 9725,
+      "postcodes": 1775
+    },
+    {
+      "district": "N20",
+      "count": 9276,
+      "postcodes": 712
+    },
+    {
+      "district": "N21",
+      "count": 7645,
+      "postcodes": 518
+    },
+    {
+      "district": "N22",
+      "count": 9626,
+      "postcodes": 584
+    },
+    {
+      "district": "N3",
+      "count": 9052,
+      "postcodes": 564
+    },
+    {
+      "district": "N4",
+      "count": 9685,
+      "postcodes": 751
+    },
+    {
+      "district": "N5",
+      "count": 8977,
+      "postcodes": 382
+    },
+    {
+      "district": "N6",
+      "count": 8505,
+      "postcodes": 461
+    },
+    {
+      "district": "N7",
+      "count": 9604,
+      "postcodes": 737
+    },
+    {
+      "district": "N8",
+      "count": 9365,
+      "postcodes": 607
+    },
+    {
+      "district": "N81",
+      "count": 1,
+      "postcodes": 1
+    },
+    {
+      "district": "N9",
+      "count": 9470,
+      "postcodes": 790
+    },
+    {
+      "district": "NW1",
+      "count": 9787,
+      "postcodes": 2458
+    },
+    {
+      "district": "NW10",
+      "count": 9643,
+      "postcodes": 1434
+    },
+    {
+      "district": "NW11",
+      "count": 9590,
+      "postcodes": 817
+    },
+    {
+      "district": "NW2",
+      "count": 9544,
+      "postcodes": 1055
+    },
+    {
+      "district": "NW3",
+      "count": 9663,
+      "postcodes": 1069
+    },
+    {
+      "district": "NW4",
+      "count": 9524,
+      "postcodes": 653
+    },
+    {
+      "district": "NW5",
+      "count": 9112,
+      "postcodes": 566
+    },
+    {
+      "district": "NW6",
+      "count": 9704,
+      "postcodes": 1050
+    },
+    {
+      "district": "NW7",
+      "count": 9402,
+      "postcodes": 698
+    },
+    {
+      "district": "NW8",
+      "count": 9601,
+      "postcodes": 715
+    },
+    {
+      "district": "NW9",
+      "count": 9662,
+      "postcodes": 1055
+    },
+    {
+      "district": "RM1",
+      "count": 6051,
+      "postcodes": 2175
+    },
+    {
+      "district": "RM10",
+      "count": 9291,
+      "postcodes": 538
+    },
+    {
+      "district": "RM11",
+      "count": 9177,
+      "postcodes": 598
+    },
+    {
+      "district": "RM12",
+      "count": 9527,
+      "postcodes": 680
+    },
+    {
+      "district": "RM13",
+      "count": 9426,
+      "postcodes": 612
+    },
+    {
+      "district": "RM14",
+      "count": 8943,
+      "postcodes": 721
+    },
+    {
+      "district": "RM15",
+      "count": 5,
+      "postcodes": 1
+    },
+    {
+      "district": "RM2",
+      "count": 5110,
+      "postcodes": 256
+    },
+    {
+      "district": "RM3",
+      "count": 9488,
+      "postcodes": 798
+    },
+    {
+      "district": "RM4",
+      "count": 192,
+      "postcodes": 23
+    },
+    {
+      "district": "RM5",
+      "count": 6206,
+      "postcodes": 369
+    },
+    {
+      "district": "RM6",
+      "count": 9185,
+      "postcodes": 497
+    },
+    {
+      "district": "RM7",
+      "count": 9163,
+      "postcodes": 486
+    },
+    {
+      "district": "RM8",
+      "count": 9449,
+      "postcodes": 559
+    },
+    {
+      "district": "RM9",
+      "count": 9399,
+      "postcodes": 498
+    },
+    {
+      "district": "SE1",
+      "count": 9837,
+      "postcodes": 3604
+    },
+    {
+      "district": "SE10",
+      "count": 9695,
+      "postcodes": 727
+    },
+    {
+      "district": "SE11",
+      "count": 9560,
+      "postcodes": 520
+    },
+    {
+      "district": "SE12",
+      "count": 9507,
+      "postcodes": 635
+    },
+    {
+      "district": "SE13",
+      "count": 9699,
+      "postcodes": 813
+    },
+    {
+      "district": "SE14",
+      "count": 9689,
+      "postcodes": 560
+    },
+    {
+      "district": "SE15",
+      "count": 9592,
+      "postcodes": 1184
+    },
+    {
+      "district": "SE16",
+      "count": 9574,
+      "postcodes": 984
+    },
+    {
+      "district": "SE17",
+      "count": 9724,
+      "postcodes": 647
+    },
+    {
+      "district": "SE18",
+      "count": 9652,
+      "postcodes": 1242
+    },
+    {
+      "district": "SE19",
+      "count": 9534,
+      "postcodes": 628
+    },
+    {
+      "district": "SE2",
+      "count": 9886,
+      "postcodes": 2748
+    },
+    {
+      "district": "SE20",
+      "count": 9430,
+      "postcodes": 651
+    },
+    {
+      "district": "SE21",
+      "count": 5945,
+      "postcodes": 275
+    },
+    {
+      "district": "SE22",
+      "count": 9127,
+      "postcodes": 475
+    },
+    {
+      "district": "SE23",
+      "count": 9598,
+      "postcodes": 579
+    },
+    {
+      "district": "SE24",
+      "count": 7929,
+      "postcodes": 273
+    },
+    {
+      "district": "SE25",
+      "count": 9428,
+      "postcodes": 595
+    },
+    {
+      "district": "SE26",
+      "count": 9636,
+      "postcodes": 582
+    },
+    {
+      "district": "SE27",
+      "count": 8854,
+      "postcodes": 349
+    },
+    {
+      "district": "SE28",
+      "count": 9051,
+      "postcodes": 381
+    },
+    {
+      "district": "SE3",
+      "count": 9681,
+      "postcodes": 695
+    },
+    {
+      "district": "SE4",
+      "count": 9256,
+      "postcodes": 432
+    },
+    {
+      "district": "SE5",
+      "count": 9513,
+      "postcodes": 721
+    },
+    {
+      "district": "SE6",
+      "count": 9585,
+      "postcodes": 754
+    },
+    {
+      "district": "SE7",
+      "count": 8391,
+      "postcodes": 373
+    },
+    {
+      "district": "SE8",
+      "count": 9779,
+      "postcodes": 472
+    },
+    {
+      "district": "SE9",
+      "count": 9627,
+      "postcodes": 1104
+    },
+    {
+      "district": "SM1",
+      "count": 9450,
+      "postcodes": 719
+    },
+    {
+      "district": "SM2",
+      "count": 8531,
+      "postcodes": 526
+    },
+    {
+      "district": "SM3",
+      "count": 6354,
+      "postcodes": 348
+    },
+    {
+      "district": "SM4",
+      "count": 9245,
+      "postcodes": 514
+    },
+    {
+      "district": "SM5",
+      "count": 9266,
+      "postcodes": 665
+    },
+    {
+      "district": "SM6",
+      "count": 9060,
+      "postcodes": 678
+    },
+    {
+      "district": "SM7",
+      "count": 199,
+      "postcodes": 22
+    },
+    {
+      "district": "SW10",
+      "count": 8876,
+      "postcodes": 415
+    },
+    {
+      "district": "SW11",
+      "count": 9823,
+      "postcodes": 1140
+    },
+    {
+      "district": "SW12",
+      "count": 9478,
+      "postcodes": 548
+    },
+    {
+      "district": "SW13",
+      "count": 6353,
+      "postcodes": 359
+    },
+    {
+      "district": "SW14",
+      "count": 6550,
+      "postcodes": 342
+    },
+    {
+      "district": "SW15",
+      "count": 9681,
+      "postcodes": 1065
+    },
+    {
+      "district": "SW16",
+      "count": 9597,
+      "postcodes": 1155
+    },
+    {
+      "district": "SW17",
+      "count": 9672,
+      "postcodes": 872
+    },
+    {
+      "district": "SW18",
+      "count": 9596,
+      "postcodes": 1006
+    },
+    {
+      "district": "SW19",
+      "count": 9467,
+      "postcodes": 1341
+    },
+    {
+      "district": "SW1A",
+      "count": 516,
+      "postcodes": 39
+    },
+    {
+      "district": "SW1E",
+      "count": 1103,
+      "postcodes": 46
+    },
+    {
+      "district": "SW1H",
+      "count": 934,
+      "postcodes": 35
+    },
+    {
+      "district": "SW1P",
+      "count": 8412,
+      "postcodes": 338
+    },
+    {
+      "district": "SW1V",
+      "count": 9158,
+      "postcodes": 474
+    },
+    {
+      "district": "SW1W",
+      "count": 6206,
+      "postcodes": 277
+    },
+    {
+      "district": "SW1X",
+      "count": 5183,
+      "postcodes": 302
+    },
+    {
+      "district": "SW1Y",
+      "count": 659,
+      "postcodes": 54
+    },
+    {
+      "district": "SW2",
+      "count": 9701,
+      "postcodes": 1293
+    },
+    {
+      "district": "SW20",
+      "count": 9363,
+      "postcodes": 511
+    },
+    {
+      "district": "SW3",
+      "count": 9438,
+      "postcodes": 711
+    },
+    {
+      "district": "SW4",
+      "count": 9614,
+      "postcodes": 806
+    },
+    {
+      "district": "SW5",
+      "count": 8519,
+      "postcodes": 268
+    },
+    {
+      "district": "SW6",
+      "count": 9654,
+      "postcodes": 1201
+    },
+    {
+      "district": "SW7",
+      "count": 8857,
+      "postcodes": 473
+    },
+    {
+      "district": "SW8",
+      "count": 9704,
+      "postcodes": 683
+    },
+    {
+      "district": "SW9",
+      "count": 9555,
+      "postcodes": 800
+    },
+    {
+      "district": "TN14",
+      "count": 204,
+      "postcodes": 28
+    },
+    {
+      "district": "TN16",
+      "count": 3804,
+      "postcodes": 266
+    },
+    {
+      "district": "TW1",
+      "count": 5175,
+      "postcodes": 2054
+    },
+    {
+      "district": "TW10",
+      "count": 8113,
+      "postcodes": 474
+    },
+    {
+      "district": "TW11",
+      "count": 9500,
+      "postcodes": 667
+    },
+    {
+      "district": "TW12",
+      "count": 9161,
+      "postcodes": 649
+    },
+    {
+      "district": "TW13",
+      "count": 9499,
+      "postcodes": 712
+    },
+    {
+      "district": "TW14",
+      "count": 9310,
+      "postcodes": 553
+    },
+    {
+      "district": "TW15",
+      "count": 26,
+      "postcodes": 3
+    },
+    {
+      "district": "TW19",
+      "count": 9,
+      "postcodes": 2
+    },
+    {
+      "district": "TW2",
+      "count": 4598,
+      "postcodes": 514
+    },
+    {
+      "district": "TW3",
+      "count": 9638,
+      "postcodes": 632
+    },
+    {
+      "district": "TW4",
+      "count": 8683,
+      "postcodes": 391
+    },
+    {
+      "district": "TW5",
+      "count": 7961,
+      "postcodes": 366
+    },
+    {
+      "district": "TW7",
+      "count": 9555,
+      "postcodes": 681
+    },
+    {
+      "district": "TW8",
+      "count": 9572,
+      "postcodes": 433
+    },
+    {
+      "district": "TW9",
+      "count": 8838,
+      "postcodes": 481
+    },
+    {
+      "district": "UB1",
+      "count": 9583,
+      "postcodes": 1142
+    },
+    {
+      "district": "UB10",
+      "count": 9479,
+      "postcodes": 673
+    },
+    {
+      "district": "UB11",
+      "count": 4030,
+      "postcodes": 168
+    },
+    {
+      "district": "UB2",
+      "count": 9220,
+      "postcodes": 465
+    },
+    {
+      "district": "UB3",
+      "count": 9737,
+      "postcodes": 824
+    },
+    {
+      "district": "UB4",
+      "count": 9153,
+      "postcodes": 642
+    },
+    {
+      "district": "UB5",
+      "count": 9543,
+      "postcodes": 760
+    },
+    {
+      "district": "UB6",
+      "count": 9665,
+      "postcodes": 748
+    },
+    {
+      "district": "UB7",
+      "count": 9504,
+      "postcodes": 550
+    },
+    {
+      "district": "UB8",
+      "count": 9379,
+      "postcodes": 619
+    },
+    {
+      "district": "UB9",
+      "count": 2591,
+      "postcodes": 181
+    },
+    {
+      "district": "W10",
+      "count": 9165,
+      "postcodes": 588
+    },
+    {
+      "district": "W11",
+      "count": 9282,
+      "postcodes": 630
+    },
+    {
+      "district": "W12",
+      "count": 9568,
+      "postcodes": 649
+    },
+    {
+      "district": "W13",
+      "count": 9435,
+      "postcodes": 545
+    },
+    {
+      "district": "W14",
+      "count": 9618,
+      "postcodes": 544
+    },
+    {
+      "district": "W1B",
+      "count": 564,
+      "postcodes": 47
+    },
+    {
+      "district": "W1C",
+      "count": 23,
+      "postcodes": 5
+    },
+    {
+      "district": "W1D",
+      "count": 1235,
+      "postcodes": 228
+    },
+    {
+      "district": "W1F",
+      "count": 1808,
+      "postcodes": 239
+    },
+    {
+      "district": "W1G",
+      "count": 2231,
+      "postcodes": 400
+    },
+    {
+      "district": "W1H",
+      "count": 4759,
+      "postcodes": 461
+    },
+    {
+      "district": "W1J",
+      "count": 1703,
+      "postcodes": 241
+    },
+    {
+      "district": "W1K",
+      "count": 2648,
+      "postcodes": 406
+    },
+    {
+      "district": "W1S",
+      "count": 547,
+      "postcodes": 93
+    },
+    {
+      "district": "W1T",
+      "count": 3043,
+      "postcodes": 436
+    },
+    {
+      "district": "W1U",
+      "count": 4637,
+      "postcodes": 555
+    },
+    {
+      "district": "W1W",
+      "count": 2654,
+      "postcodes": 285
+    },
+    {
+      "district": "W2",
+      "count": 9631,
+      "postcodes": 832
+    },
+    {
+      "district": "W3",
+      "count": 9692,
+      "postcodes": 867
+    },
+    {
+      "district": "W4",
+      "count": 9696,
+      "postcodes": 889
+    },
+    {
+      "district": "W5",
+      "count": 9598,
+      "postcodes": 834
+    },
+    {
+      "district": "W6",
+      "count": 9490,
+      "postcodes": 589
+    },
+    {
+      "district": "W7",
+      "count": 8946,
+      "postcodes": 474
+    },
+    {
+      "district": "W8",
+      "count": 9035,
+      "postcodes": 538
+    },
+    {
+      "district": "W9",
+      "count": 9532,
+      "postcodes": 490
+    },
+    {
+      "district": "WC1A",
+      "count": 534,
+      "postcodes": 46
+    },
+    {
+      "district": "WC1B",
+      "count": 673,
+      "postcodes": 55
+    },
+    {
+      "district": "WC1E",
+      "count": 956,
+      "postcodes": 43
+    },
+    {
+      "district": "WC1H",
+      "count": 4050,
+      "postcodes": 165
+    },
+    {
+      "district": "WC1N",
+      "count": 2946,
+      "postcodes": 176
+    },
+    {
+      "district": "WC1R",
+      "count": 417,
+      "postcodes": 42
+    },
+    {
+      "district": "WC1V",
+      "count": 188,
+      "postcodes": 18
+    },
+    {
+      "district": "WC1X",
+      "count": 4334,
+      "postcodes": 232
+    },
+    {
+      "district": "WC2A",
+      "count": 389,
+      "postcodes": 21
+    },
+    {
+      "district": "WC2B",
+      "count": 1364,
+      "postcodes": 73
+    },
+    {
+      "district": "WC2E",
+      "count": 983,
+      "postcodes": 93
+    },
+    {
+      "district": "WC2H",
+      "count": 2097,
+      "postcodes": 164
+    },
+    {
+      "district": "WC2N",
+      "count": 788,
+      "postcodes": 57
+    },
+    {
+      "district": "WC2R",
+      "count": 568,
+      "postcodes": 22
+    },
+    {
+      "district": "WD23",
+      "count": 4,
+      "postcodes": 3
+    },
+    {
+      "district": "WD3",
+      "count": 36,
+      "postcodes": 6
+    },
+    {
+      "district": "WD6",
+      "count": 18,
+      "postcodes": 2
+    }
+  ]
+}
